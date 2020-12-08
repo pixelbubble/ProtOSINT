@@ -1,5 +1,5 @@
 # ProtOSINT
-ProtOSINT is a Python script that helps you investigate Protonmail accounts and ProtonVPN IP addresses
+ProtOSINT is a Python script that helps you investigate Protonmail accounts and ProtonVPN IP addresses.
 
 ## Description
 
@@ -21,12 +21,7 @@ python3 protosint.py
 
 ## Protonmail 
 The local part of a protonmail account is case-insensitive.
-It's mean that if "mikemike@protonmail.com" is valid, is it possible that Mike Mike use other email combinaison like :
-"mike.mike@protonmail.com"
-"mike_mike@protonmail.com"
-"mike-mike@protonmail.com"
-"mike.mike+paypal@protonmail.com"
-
+It's mean that if "mikemike@protonmail.com" is valid, is it possible that Mike Mike use other email combinaison like : "mike.mike@protonmail.com" ; "mike_mike@protonmail.com" ; "mike-mike@protonmail.com" or "mike.mike+paypal@protonmail.com"
 > All of these emails have the save timestamp and are linked to the same main account
 
 ## Contributing
