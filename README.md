@@ -4,7 +4,7 @@ ProtOSINT is a Python script that helps you investigate Protonmail accounts and 
 ![](https://github.com/pixelbubble/pixelbubble/blob/main/protosint.gif)
 
 ## Description
-This tool can help you in your OSINT investigation on Proton service (For educational purposes only).
+This tool can help you in your OSINT investigation on Proton service (for educational purposes only).  
 ProtOSINT is separated in 3 sub-modules:
 - [1] Test the validity of one protonmail account
 - [2] Try to find if your target have a protonmail account by generating multiple adresses by combining information fields inputted
