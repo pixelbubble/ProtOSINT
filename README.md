@@ -1,6 +1,8 @@
 # ProtOSINT
 ProtOSINT is a Python script that helps you investigate Protonmail accounts and ProtonVPN IP addresses.
 
+![](https://github.com/pixelbubble/pixelbubble/blob/main/protosint.gif)
+
 ## Description
 This tool can help you in your OSINT investigation on Proton service (For educational purposes only).
 ProtOSINT is separated in 3 sub-modules:
