@@ -20,15 +20,15 @@ def printAscii():
 	ASCII Art
 	"""
 	print("""
-	   ___           _            _       _   
-	  / _ \_ __ ___ | |_ ___  ___(_)_ __ | |_ 
-	 / /_)/ '__/ _ \| __/ _ \/ __| | '_ \| __|
-	/ ___/| | | (_) | || (_) \__ \ | | | | |_ 
-	\/    |_|  \___/ \__\___/|___/_|_| |_|\__|
+   ___           _            _       _   
+  / _ \_ __ ___ | |_ ___  ___(_)_ __ | |_ 
+ / /_)/ '__/ _ \| __/ _ \/ __| | '_ \| __|
+/ ___/| | | (_) | || (_) \__ \ | | | | |_ 
+\/    |_|  \___/ \__\___/|___/_|_| |_|\__|
 	                                          
 	""")
 
-
+	
 def checkProtonAPIStatut():
 	"""
 	This function check proton API statut : ONLINE / OFFLINE
@@ -97,6 +97,24 @@ def checkValidityOneAccount():
 		dtObject = datetime.fromtimestamp(timestamp)
 		print("Date and time of the creation:", dtObject)
 
+		#Download the public key attached to the email
+		invalidResponse = True
+
+		print("Do you want to download the public key attached to the email ?")
+		while invalidResponse:
+			#Input
+			responseFromUser = input("""Please enter "yes" or "no": """)
+			#Text if the input is valid
+			if responseFromUser == "yes":
+				invalidResponse = False
+				requestProtonPublicKey = requests.get('https://api.protonmail.ch/pks/lookup?op=get&search='+str(mail))
+				bodyResponsePublicKey = requestProtonPublicKey.text
+				print(bodyResponsePublicKey)
+			elif responseFromUser == "no":
+				invalidResponse = False
+			else:
+				print("Invalid Input")
+				invalidResponse = True
 
 def checkGeneratedProtonAccounts():
 	"""
