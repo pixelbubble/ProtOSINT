@@ -21,16 +21,17 @@ python3 protosint.py
 ```
 
 ## Protonmail 
-The local part of a protonmail account is case-insensitive.
-It's mean that if "mikemike@protonmail.com" is valid, is it possible that Mike Mike use other email combinaison like :
+The account name in the protonmail is case-insensitive and ProtonMail considers the "." "-" symbols as transparent.
+Additionnaly, any words put after a "+" sign are not taken into account.
+It means that all of these email adresses below are the same as mikemike@protonmail.com
 - "mike.mike@protonmail.com"
 - "mike_mike@protonmail.com"
 - "mike-mike@protonmail.com"
 - "mike.mike+paypal@protonmail.com"
-> All of these emails have the save timestamp and are linked to the same main account
+>All of these emails have the save timestamp and refers to the account mikemike@protonmail.com
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Feel free to clone this project. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
