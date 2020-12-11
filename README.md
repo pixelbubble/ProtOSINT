@@ -21,9 +21,9 @@ python3 protosint.py
 ```
 
 ## Protonmail 
-The account name in the protonmail is case-insensitive and ProtonMail considers the "." "-" symbols as transparent.
-Additionnaly, any words put after a "+" sign are not taken into account.
-It means that all of these email adresses below are the same as mikemike@protonmail.com
+The account name in the protonmail is case-insensitive and ProtonMail considers the "." "-" symbols as transparent.  
+Additionnaly, any words put after a "+" sign are not taken into account.  
+It means that all of these email adresses below are the same as mikemike@protonmail.com :  
 - "mike.mike@protonmail.com"
 - "mike_mike@protonmail.com"
 - "mike-mike@protonmail.com"
