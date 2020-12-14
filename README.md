@@ -1,5 +1,5 @@
 # ProtOSINT
-ProtOSINT is a Python script that helps you investigate Protonmail accounts and ProtonVPN IP addresses.
+ProtOSINT is a Python script that helps you investigate ProtonMail accounts and ProtonVPN IP addresses.
 
 ![](https://github.com/pixelbubble/pixelbubble/blob/main/protosint.gif)
 
