@@ -51,7 +51,7 @@ def printWelcome():
 	welcome = """
 Let's take a look at your target:
 1 - Test the validity of one protonmail account
-2 - Try to find if your target have a protonmail account by generating multiple adresses by combining information fields inputted
+2 - Try to find if your target have a protonmail account
 3 - Find if your IP is currently affiliate to ProtonVPN
 """
 	print(welcome)
@@ -63,7 +63,7 @@ def checkValidityOneAccount():
 	
 	"""
 	invalidEmail = True
-	regexEmail = '^[a-z0-9]+[\._]?[a-z0-9]+[@]protonmail[.]\w{2,3}$'
+	regexEmail = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
 	
 	print("You want to know if a protonmail email is real ?")
 	while invalidEmail:
@@ -73,7 +73,7 @@ def checkValidityOneAccount():
 		if(re.search(regexEmail,mail)):
 			invalidEmail = False
 		else:
-			print("Invalid Proton Email")
+			print("Invalid Email")
 			invalidEmail = True
 
 	#Check if the protonmail exist : valid / not valid
@@ -132,7 +132,7 @@ def checkGeneratedProtonAccounts():
 	zipCode = input("zipCode: ")
 
 	#Protonmail domain
-	domainList = ["@protonmail.com","@protonmail.ch"]
+	domainList = ["@protonmail.com","@protonmail.ch","@pm.me"]
 
 	#List of combinaison
 	pseudoList=[]
