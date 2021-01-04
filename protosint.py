@@ -63,7 +63,7 @@ def checkValidityOneAccount():
 	
 	"""
 	invalidEmail = True
-	regexEmail = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+	regexEmail = "([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)"
 	
 	print("You want to know if a protonmail email is real ?")
 	while invalidEmail:
@@ -88,14 +88,32 @@ def checkValidityOneAccount():
 
 	if protonExist in bodyResponse:
 		print("Protonmail email is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}")
-		regexPattern1 = "2048:(.*)::"
-		regexPattern2 = "4096:(.*)::"
+		regexPattern1 = "2048:(.*)::" #RSA 2048-bit (Older but faster)
+		regexPattern2 = "4096:(.*)::" #RSA 4096-bit (Secure but slow)
+		regexPattern3 = "22::(.*)::" #X25519 (Modern, fastest, secure)
 		try:
 			timestamp = int(re.search(regexPattern1, bodyResponse).group(1))
+			dtObject = datetime.fromtimestamp(timestamp)
+			print("Date and time of the creation:", dtObject)
+			print("Encryption : RSA 2048-bit (Older but faster)")
 		except:
+			pass
+
+		try:
 			timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
-		dtObject = datetime.fromtimestamp(timestamp)
-		print("Date and time of the creation:", dtObject)
+			dtObject = datetime.fromtimestamp(timestamp)
+			print("Date and time of the creation:", dtObject)
+			print("Encryption : RSA 4096-bit (Secure but slow)")
+		except:
+			pass
+
+		try:
+			timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
+			dtObject = datetime.fromtimestamp(timestamp)
+			print("Date and time of the creation:", dtObject)
+			print("Encryption : X25519 (Modern, fastest, secure)")
+		except:
+			pass
 
 		#Download the public key attached to the email
 		invalidResponse = True
@@ -198,15 +216,29 @@ def checkGeneratedProtonAccounts():
 			print(pseudo + " is " + f"{bcolors.FAIL}not valid{bcolors.ENDC}")
 
 		if protonExist in bodyResponse:
-			regexPattern1 = "2048:(.*)::" #AES encryption with 2048-bits
-			regexPattern2 = "4096:(.*)::" #AES encryption with 4096-bits
+			regexPattern1 = "2048:(.*)::"
+			regexPattern2 = "4096:(.*)::"
+			regexPattern3 = "22::(.*)::"
 			try:
 				timestamp = int(re.search(regexPattern1, bodyResponse).group(1))
+				dtObject = datetime.fromtimestamp(timestamp)
+				print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
 			except:
-				timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
-			dtObject = datetime.fromtimestamp(timestamp)
-			print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
+				pass
 
+			try:
+				timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
+				dtObject = datetime.fromtimestamp(timestamp)
+				print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
+			except:
+				pass
+
+			try:
+				timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
+				dtObject = datetime.fromtimestamp(timestamp)
+				print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
+			except:
+				pass
 
 def checkIPProtonVPN():
 	"""
