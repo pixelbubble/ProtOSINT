@@ -30,7 +30,14 @@ It means that all of these email adresses below are the same as mikemike@protonm
 - "mike.mike+paypal@protonmail.com"
 >All of these emails have the save timestamp and refers to the account mikemike@protonmail.com
 
-Furthermore, this technique does not always give you the creation time and date of the ProtonMail account itself, but the time and date when the email address itself was created (thanks to @sector035 for the tip : https://sector035.nl/articles/2020-50)
+This technique does not always give you the creation time and date of the ProtonMail account itself, but the time and date when the email address itself was created (thanks to @sector035 for the tip : https://sector035.nl/articles/2020-50)
+
+Email encryption keys
+
+ProtOSINT allow you to know which encryption key is used for a protonmail account :
+- RSA 2048-bit (Older but faster) - high security
+- RSA 4096-bit (Secure but slow) - highest security
+- X25519 (Modern, fastest, secure) - State-of-the-art 
 
 ## Contributing
 Feel free to clone this project. For major changes, please open an issue first to discuss what you would like to change.
