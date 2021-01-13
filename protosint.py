@@ -97,23 +97,16 @@ def checkValidityOneAccount():
 			print("Date and time of the creation:", dtObject)
 			print("Encryption : RSA 2048-bit (Older but faster)")
 		except:
-			pass
-
-		try:
-			timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
-			dtObject = datetime.fromtimestamp(timestamp)
-			print("Date and time of the creation:", dtObject)
-			print("Encryption : RSA 4096-bit (Secure but slow)")
-		except:
-			pass
-
-		try:
-			timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
-			dtObject = datetime.fromtimestamp(timestamp)
-			print("Date and time of the creation:", dtObject)
-			print("Encryption : X25519 (Modern, fastest, secure)")
-		except:
-			pass
+			try:
+				timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
+				dtObject = datetime.fromtimestamp(timestamp)
+				print("Date and time of the creation:", dtObject)
+				print("Encryption : RSA 4096-bit (Secure but slow)")
+			except:
+				timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
+				dtObject = datetime.fromtimestamp(timestamp)
+				print("Date and time of the creation:", dtObject)
+				print("Encryption : X25519 (Modern, fastest, secure)")
 
 		#Download the public key attached to the email
 		invalidResponse = True
@@ -224,21 +217,14 @@ def checkGeneratedProtonAccounts():
 				dtObject = datetime.fromtimestamp(timestamp)
 				print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
 			except:
-				pass
-
-			try:
-				timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
-				dtObject = datetime.fromtimestamp(timestamp)
-				print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
-			except:
-				pass
-
-			try:
-				timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
-				dtObject = datetime.fromtimestamp(timestamp)
-				print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
-			except:
-				pass
+				try:
+					timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
+					dtObject = datetime.fromtimestamp(timestamp)
+					print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
+				except:
+					timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
+					dtObject = datetime.fromtimestamp(timestamp)
+					print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
 
 def checkIPProtonVPN():
 	"""
