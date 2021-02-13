@@ -20,8 +20,11 @@ ProtOSINT is separated in 3 sub-modules:
 python3 protosint.py
 ```
 
-## Protonmail 
-The account name in the protonmail is case-insensitive and ProtonMail considers the "." "_" "-" symbols as transparent.  
+## Tips for Protonmail investigation
+
+### ProtonMail is case-insensitive
+
+The account name in the ProtonMail is case-insensitive and ProtonMail considers the "." "_" "-" symbols as transparent.  
 Additionnaly, any words put after a "+" sign are not taken into account.  
 It means that all of these email adresses below are the same as mikemike@protonmail.com:  
 - "mike.mike@protonmail.com"
@@ -30,14 +33,36 @@ It means that all of these email adresses below are the same as mikemike@protonm
 - "mike.mike+paypal@protonmail.com"
 >All of these emails have the save timestamp and refers to the account mikemike@protonmail.com.
 
-This technique does not always give you the creation time and date of the ProtonMail account itself, but the time and date when the email address itself was created (thanks to @sector035 for the tip: https://sector035.nl/articles/2020-50).
+### Timestamp
 
-Email encryption keys
+ProtOSINT does not always give you the creation time of the ProtonMail account itself. The timestamp returned by ProtonMail API is the time and date when the primary PGP key for the email was created.
 
-ProtOSINT allow you to know which encryption key is used for a protonmail account:
+#### Example 1: my target keeps the default settings
+In this case, ProtOSINT gives me the real date of creation of the ProtonMail account.
+- 2021-01-12: Creation of the protonmail account "thisisatestemailaccount@protonmail.com".  
+> Fingerprint of the key: 382a2045a09305f5ab4ef9000e1a2dd1e7e162fe - RSA (2048).
+- 2021-01-15: ProtOSINT gives me the 2021-01-15 timestamps.  
+
+#### Example 2: my target changes the email encryption keys
+In this case, ProtOSINT does not give me the "real" date of creation of the ProtonMail account but the date of creation of the primary PGP key.
+- 2021-01-12: Creation of the protonmail account "thisisatestemailaccount@protonmail.com".  
+> Fingerprint of the key: 382a2045a09305f5ab4ef9000e1a2dd1e7e162fe - RSA (2048).
+- 2021-01-13: My target changes the primary PGP key (in settings/keys/Email encryption keys).  
+> New fingerprint of the key: 634936a85115b8e30a31b94345d4551bc66da9d3 - RSA (2048).
+- 2021-01-15: ProtOSINT gives me the 2021-01-13 timestamp and not the other (2021-01-12).
+
+### Email encryption keys
+
+ProtOSINT allow you to know which encryption key is used for a ProtonMail account:
 - RSA 2048-bit (Older but faster) - high security
 - RSA 4096-bit (Secure but slow) - highest security
 - X25519 (Modern, fastest, secure) - State-of-the-art 
+
+### Custom domain
+
+In the first sub-module of ProtOSINT [1], you can import a custom domain like alias@mycustumdomain.com.   
+In fact, the premium ProtonMail plan allows you to connect your custom domain to ProtonMail.  
+This means that if alias@mycustumdomain.com is "valid", your target uses a premium ProtonMail account.  
 
 ## Contributing
 Feel free to clone this project. For major changes, please open an issue first to discuss what you would like to change.
