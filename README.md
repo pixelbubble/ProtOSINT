@@ -39,17 +39,17 @@ ProtOSINT does not always give you the creation time of the ProtonMail account i
 
 #### Example 1: my target keeps the default settings
 In this case, ProtOSINT gives me the real date of creation of the ProtonMail account.
-- 2021-01-12: Creation of the protonmail account "thisisatestemailaccount@protonmail.com".  
+- 2021-01-12: Creation of the protonmail account "thisisatestemailaccount@protonmail.com"  
 > Fingerprint of the key: 382a2045a09305f5ab4ef9000e1a2dd1e7e162fe - RSA (2048).
-- 2021-01-15: ProtOSINT gives me the 2021-01-15 timestamps.  
+- 2021-01-15: ProtOSINT gives me the 2021-01-15 timestamps  
 
 #### Example 2: my target changes the email encryption keys
 In this case, ProtOSINT does not give me the "real" date of creation of the ProtonMail account but the date of creation of the primary PGP key.
-- 2021-01-12: Creation of the protonmail account "thisisatestemailaccount@protonmail.com".  
+- 2021-01-12: Creation of the protonmail account "thisisatestemailaccount@protonmail.com"  
 > Fingerprint of the key: 382a2045a09305f5ab4ef9000e1a2dd1e7e162fe - RSA (2048).
-- 2021-01-13: My target changes the primary PGP key (in settings/keys/Email encryption keys).  
+- 2021-01-13: My target changes the primary PGP key (in settings/keys/Email encryption keys)  
 > New fingerprint of the key: 634936a85115b8e30a31b94345d4551bc66da9d3 - RSA (2048).
-- 2021-01-15: ProtOSINT gives me the 2021-01-13 timestamp and not the other (2021-01-12).
+- 2021-01-15: ProtOSINT gives me the 2021-01-13 timestamp and not the other (2021-01-12)
 
 ### Email encryption keys
 
