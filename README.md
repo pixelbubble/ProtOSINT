@@ -41,7 +41,7 @@ ProtOSINT does not always give you the creation time of the ProtonMail account i
 In this case, ProtOSINT gives me the real date of creation of the ProtonMail account.
 - 2021-01-12: Creation of the protonmail account "thisisatestemailaccount@protonmail.com"  
 > Fingerprint of the key: 382a2045a09305f5ab4ef9000e1a2dd1e7e162fe - RSA (2048).
-- 2021-01-15: ProtOSINT gives me the 2021-01-15 timestamps  
+- 2021-01-15: ProtOSINT gives me the 2021-01-12 timestamps  
 
 #### Example 2: my target changes the email encryption keys
 In this case, ProtOSINT does not give me the "real" date of creation of the ProtonMail account but the date of creation of the primary PGP key.
@@ -60,9 +60,9 @@ ProtOSINT allow you to know which encryption key is used for a ProtonMail accoun
 
 ### Custom domain
 
-In the first sub-module of ProtOSINT [1], you can import a custom domain like alias@mycustumdomain.com.   
-In fact, the premium ProtonMail plan allows you to connect your custom domain to ProtonMail.  
-This means that if alias@mycustumdomain.com is "valid", your target uses a premium ProtonMail account.  
+In the first sub-module of ProtOSINT [1], you can import a custom domain like alias@mycustumdomain.com.
+In fact, the premium ProtonMail plan allows you to connect your custom domain to ProtonMail.
+This means that if alias@mycustumdomain.com is "valid", your target uses a premium ProtonMail account.
 
 ## Contributing
 Feel free to clone this project. For major changes, please open an issue first to discuss what you would like to change.
