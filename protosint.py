@@ -72,14 +72,14 @@ def checkEmail(mail):
     for regexPattern in regexListPatterns:
         protonmailElements = re.search(regexPattern, requestProton.text)
         if protonmailElements:
-            print("Protonmail " + str(mail) + " is valid")
+            print("Protonmail " + str(mail) + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}")
             print("Date and time of the creation:", str(datetime.fromtimestamp(int(protonmailElements[2]))))
             print('Fingerprint of public key of the email: ', protonmailElements[1])
             print(descEncryption[regexListPatterns.index(regexPattern)])
             return True
             break
     else:
-        print("Protonmail email is not valid")
+        print("Protonmail " + str(mail) + " is " + f"{bcolors.FAIL}not valid{bcolors.ENDC}")
         return False
         
 
