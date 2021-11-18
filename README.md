@@ -6,9 +6,24 @@ ProtOSINT is a Python script that helps you investigate ProtonMail accounts and 
 ## Description
 This tool can help you in your OSINT investigation on Proton service (for educational purposes only).  
 ProtOSINT is separated in 3 sub-modules:
-- [1] Test the validity of one protonmail account
-- [2] Try to find if your target have a protonmail account by generating multiple adresses by combining information fields inputted
+- [1] Test the validity of one protonMail account and get additional information
+- [2] Try to find if your target have a protonMail account by generating multiple adresses by combining information fields inputted
 - [3] Find if your IP is currently affiliate to ProtonVPN
+
+## :warning: Important update of the ProtonMail API [2021-11-07] :warning:
+Since several days, we observe an update in ProtonMail's API:
+- The API now seems to be limited to a few queries (ten/fifteen requests).
+- The blocking time is one hour (the limitation seems to be by IP address).
+- Even if an email is not valid, the API will return a result that seems valid with a random timestamp.
+- However, if the email is really valid, the timestamp returned is still good.
+
+**Advice for using ProtOSINT nowadays**
+- Use only module 1 and 3.
+- Before using module 1, first test the validity of your email with a third party tool or with the recipient field directly in the ProtonMail web interface:
+
+![image](https://user-images.githubusercontent.com/75697623/140655959-e68ca0c7-3a3d-4cc0-8fdd-569792015e36.png)
+
+Then, using ProtOSINT, get additional information (the public key attached to the email, the date the PGP key was created and the encryption used).
 
 ## Prerequisite
 
@@ -20,7 +35,7 @@ ProtOSINT is separated in 3 sub-modules:
 python3 protosint.py
 ```
 
-## Tips for Protonmail investigation
+## Tips for ProtonMail investigation
 
 ### ProtonMail is case-insensitive
 
