@@ -216,11 +216,15 @@ def checkGeneratedProtonAccounts():
 				timestamp = int(re.search(regexPattern1, bodyResponse).group(1))
 				dtObject = datetime.fromtimestamp(timestamp)
 				print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
+			except AttributeError:
+				continue
 			except:
 				try:
 					timestamp = int(re.search(regexPattern2, bodyResponse).group(1))
 					dtObject = datetime.fromtimestamp(timestamp)
 					print(pseudo + " is " + f"{bcolors.OKGREEN}valid{bcolors.ENDC}" + " - Creation date:", dtObject)
+				except AttributeError:
+					continue
 				except:
 					timestamp = int(re.search(regexPattern3, bodyResponse).group(1))
 					dtObject = datetime.fromtimestamp(timestamp)
