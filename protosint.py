@@ -19,7 +19,7 @@ def printAscii():
 	"""
 	ASCII Art
 	"""
-	print("""
+	print(r"""
    ___           _            _       _   
   / _ \_ __ ___ | |_ ___  ___(_)_ __ | |_ 
  / /_)/ '__/ _ \| __/ _ \/ __| | '_ \| __|
@@ -63,7 +63,7 @@ def checkValidityOneAccount():
 	
 	"""
 	invalidEmail = True
-	regexEmail = "([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)"
+	regexEmail = r"([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)"
 	
 	print("You want to know if a protonmail email is real ?")
 	while invalidEmail:
