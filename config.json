@@ -1,0 +1,10 @@
+{
+  "proton": {
+    "username": "",
+    "password": ""
+  },
+  "settings": {
+    "use_selenium": true,
+    "headless": true
+  }
+}
