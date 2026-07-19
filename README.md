@@ -4,7 +4,7 @@ ProtOSINT is a Python script that helps you investigate Proton Mail accounts.
 <img width="800" height="832" alt="protosint (1)" src="https://github.com/user-attachments/assets/4c08389a-0525-40e3-99d3-392561752425" />
 
 ## Version
-This is **ProtOSINT v2**. The first version has been around for a few years, but Proton's API changed and the old checks stopped working, so this is a rewrite that brings the tool back to life. Big thanks to [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT) for keeping this kind of research going in the meantime - a lot of the current approach (the account API and the Selenium compose check) is inspired by it.
+This is **ProtOSINT v2**. The first version has been around for a few years, but Proton's API changed and the old checks stopped working, so this is a rewrite that brings the tool back to life. Big thanks to [NeutrOSINT](https://github.com/Kr0wZ/NeutrOSINT) for keeping this kind of research going in the meantime.
 
 ## Description
 This tool is meant for OSINT work on Proton Mail (educational and authorised use only). You give it an email address, a username or a domain, and it tells you what it can find: whether the address really exists, when the account's encryption key was created, which algorithm it uses, and whether a custom domain is hosted on Proton.
